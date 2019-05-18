@@ -353,18 +353,14 @@ class clsDb
 
 
 [clsWmiPs] $wmi = [clsWmiPs]::new($COMP_NAME)
-$wmi.GetXmlString( $wmi.GetBiosXml())
-<#$wmi.GetXmlString( $wmi.GetCpuXml())
-
-$wmi.GetXmlString( $wmi.GetVideoXml())
+<#$wmi.GetXmlString( $wmi.GetBiosXml())
+$wmi.GetXmlString( $wmi.GetCpuXml())
 $wmi.GetXmlString( $wmi.GetHddXml())
-$wmi.GetXmlString( $wmi.GetRamXml())
 $wmi.GetXmlString( $wmi.GetIpXml())
+$wmi.GetXmlString( $wmi.GetRamXml())
 $wmi.GetXmlString( $wmi.GetUsersXml())
 $wmi.GetXmlString( $wmi.GetVideoXml())
 #>
-
-
 
 [clsDb] $mssql = [clsDb]::new($DB_PROVIDER_MSSQL,$DB_SERVER_NAME_MSSQL,$DB_NAME_MSSQL )
 $mssql.ExecuteCmd($mssql.CreateCommandSp("InsertPsBiosLogXml",  "@xmlText",$wmi.GetXmlString( $wmi.GetBiosXml())))
